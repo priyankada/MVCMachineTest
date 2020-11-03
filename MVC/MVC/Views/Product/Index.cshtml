@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVC.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+<h2>Product</h2>
+    
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr style=" background-color:#7fbdf2">
+        <th style="padding-right:10px;">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th style="padding-right:10px;">
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th style="padding-right:10px;">
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="padding-right:10px;">
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td style="padding-left:10px; padding-right:10px;">
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td style="padding-left:5px; padding-right:10px;">
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td style="padding-right:15px;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+            @Html.ActionLink("Read", "Details", new { id=item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+        </td>
+    </tr>
+}
+
+</table>
+    </center>

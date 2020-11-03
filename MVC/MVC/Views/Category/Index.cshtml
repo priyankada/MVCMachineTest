@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MVC.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<center>
+<h2>Category</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr style=" background-color:#7fbdf2">
+        <th style="padding-right:10px;">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th style="padding-right:10px;">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="padding-right:10px;">
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td style="padding-right:10px;">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |
+            @Html.ActionLink("Read", "Details", new { id=item.CategoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryId })
+        </td>
+    </tr>
+}
+
+</table>
+</center>
